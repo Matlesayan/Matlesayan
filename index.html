@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moi je vous aide - Mes Projets</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: linear-gradient(45deg, #FFA726, #FFEB3B);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-bottom: 4px solid red;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin: 0;
+            animation: textGlow 2s ease-in-out infinite alternate;
+        }
+
+        header p {
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background: linear-gradient(45deg, #FFA726, #FFEB3B);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-bottom: 4px solid red;
+            animation: slideInLeft 1s ease-out;
+        }
+
+        nav a {
+            color: white;
+            padding: 15px 20px;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 0.9em;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #FFCA28;
+            transform: scale(1.1);
+        }
+
+        section {
+            padding: 40px 20px;
+            margin: 20px auto;
+            max-width: 800px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border: 2px solid red;
+            position: relative;
+            animation: fadeInUp 1s ease-out;
+            overflow: hidden;
+        }
+
+        section:before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: -50px;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 193, 7, 0.3);
+            border-radius: 50%;
+            z-index: 0;
+            animation: floating 6s ease-in-out infinite;
+        }
+
+        h2 {
+            color: #FF5722;
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-align: center;
+            z-index: 1;
+            position: relative;
+            animation: rotateIn 1s ease-out;
+        }
+
+        .book-summary, .game-list-item, .travel-destination {
+            margin-bottom: 20px;
+            z-index: 1;
+            position: relative;
+            animation: zoomIn 1s ease-out;
+        }
+
+        .book-summary h3, .game-list-item h3, .travel-destination h3 {
+            margin-bottom: 10px;
+            color: #333;
+            font-size: 1.5em;
+            animation: textGlow 2s ease-in-out infinite alternate;
+        }
+
+        .book-summary p, .game-list-item p, .travel-destination p {
+            margin-top: 0;
+            color: #555;
+            font-size: 1em;
+        }
+
+        .game-list, .travel-destination-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+
+        .game-list-item, .travel-destination {
+            background-color: #FFEB3B;
+            border: 2px solid red;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 10px;
+            animation: slideInUp 1s ease-out;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            position: relative;
+            width: 100%;
+            margin-top: 40px;
+            font-size: 0.9em;
+            border-top: 4px solid red;
+            animation: slideInRight 1s ease-out;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes rotateIn {
+            from {
+                opacity: 0;
+                transform: rotate(-360deg);
+            }
+            to {
+                opacity: 1;
+                transform: rotate(0deg);
+            }
+        }
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes textGlow {
+            from {
+                text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.4), 0 0 30px rgba(255, 255, 255, 0.3);
+            }
+            to {
+                text-shadow: 0 0 20px rgba(255, 255, 255, 0.7), 0 0 30px rgba(255, 255, 255, 0.6), 0 0 40px rgba(255, 255, 255, 0.5);
+            }
+        }
+
+        @keyframes floating {
+            from {
+                transform: translateY(0);
+            }
+            to {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Bienvenue sur ma Page Personnelle</h1>
+        <p>Explore mes projets et découvertes</p>
+    </header>
+
+    <nav>
+        <a href="#jeux-videos">Jeux Vidéo</a>
+        <a href="#projets-scolaires">Projets Scolaires</a>
+        <a href="#resumes-livres">Résumés de Livres</a>
+        <a href="#voyages">Voyages</a>
+    </nav>
+
+    <section id="jeux-videos">
+        <h2>Jeux Vidéo</h2>
+        <p>Découvrez les jeux vidéo les plus connus qui ont marqué l'industrie du jeu. Voici une liste des 10 jeux vidéo les plus emblématiques :</p>
+        <ul class="game-list">
+            <li class="game-list-item">
+                <h3>1. The Legend of Zelda: Breath of the Wild</h3>
+                <p>Un jeu d'aventure en monde ouvert acclamé pour sa vaste exploration et son gameplay innovant.</p>
+            </li>
+            <li class="game-list-item">
+                <h3>2. Super Mario Odyssey</h3>
+                <p>Un jeu de plateforme 3D avec des niveaux créatifs et une jouabilité captivante.</p>
+            </li>
+            <li class="game-list-item">
+                <h3>3. Grand Theft Auto V</h3>
+                <p>Un jeu d'action-aventure qui offre une expérience immersive dans un monde ouvert vaste.</p>
+            </li>
+            <li class="game-list-item">
+                <h3>4. Fortnite</h3>
+                <p>Un jeu de bataille royale populaire pour son gameplay dynamique et ses mises à jour fréquentes.</p>
+            </li>
+            <li class="game-list-item">
+                <h3>5. Minecraft</h3>
+                <p>Un jeu de construction et de survie avec des possibilités illimitées pour la créativité des joueurs.</p>
+            </li>
+            <li class="game-list-item">
+                <h3>6. The Witcher 3: Wild Hunt</h3>
+                <p>Un RPG acclamé pour son monde riche et ses quêtes captivantes.</p>
+            </li>
+            <li class="game-list-item">
+                <h3>7. Red Dead Redemption 2</h3>
+                <p>Un jeu d'action-aventure en monde ouvert avec une narration immersive et un environnement détaillé.</p>
+            </li>
+            <li class="game-list-item">
+                <h3>8. Dark Souls III</h3>
+                <p>Un jeu d'action-RPG connu pour sa difficulté élevée et son gameplay exigeant.</p>
+            </li>
+            <li class="game-list-item">
+                <h3>9. Overwatch</h3>
+                <p>Un jeu de tir en équipe avec des héros distincts et des compétences uniques.</p>
+            </li>
+            <li class="game-list-item">
+                <h3>10. Animal Crossing: New Horizons</h3>
+                <p>Un jeu de simulation de vie où les joueurs construisent et personnalisent leur propre île.</p>
+            </li>
+        </ul>
+    </section>
+
+    <section id="projets-scolaires">
+        <h2>Projets Scolaires</h2>
+        <p>Ici, vous trouverez une présentation de mes projets académiques. Que ce soit des travaux de groupe, des projets de recherche ou des études de cas, cette section reflète mon engagement et mon travail dans un contexte scolaire.</p>
+    </section>
+
+    <section id="resumes-livres">
+        <h2>Résumés de Livres</h2>
+
+        <div class="book-summary">
+            <h3>1. *Le Petit Prince* - Antoine de Saint-Exupéry</h3>
+            <p>Le Petit Prince raconte l'histoire d'un jeune prince venu d'une autre planète, qui voyage à travers l'univers et rencontre des personnages aux leçons de vie profondes. Le livre aborde des thèmes comme l'amour, l'amitié et la quête de sens dans un langage poétique et simple.</p>
+        </div>
+
+        <div class="book-summary">
+            <h3>2. *1984* - George Orwell</h3>
+            <p>Dans un futur dystopique, Winston Smith vit sous la surveillance constante du Parti dirigé par Big Brother. Le roman explore les dangers du totalitarisme, la manipulation de la vérité et la perte de la liberté individuelle.</p>
+        </div>
+
+        <div class="book-summary">
+            <h3>3. *Les Misérables* - Victor Hugo</h3>
+            <p>Les Misérables suit la vie de Jean Valjean, un ancien forçat, dans la France du XIXe siècle. Le livre traite de la justice, de la rédemption, et des luttes sociales, tout en racontant l'histoire de plusieurs personnages interconnectés.</p>
+        </div>
+
+        <div class="book-summary">
+            <h3>4. *Pride and Prejudice* - Jane Austen</h3>
+            <p>Ce classique de la littérature anglaise raconte l'histoire d'Elizabeth Bennet, une jeune femme vive et indépendante, et de sa relation avec le fier Mr. Darcy. Le roman explore les thèmes de l'amour, du mariage, et de la critique sociale.</p>
+        </div>
+
+        <div class="book-summary">
+            <h3>5. *Moby Dick* - Herman Melville</h3>
+            <p>*Moby Dick* narre l'épopée du capitaine Achab à la poursuite de la baleine blanche Moby Dick. Ce roman complexe traite de la vengeance, de l'obsession, et de la lutte contre les forces naturelles incontrôlables.</p>
+        </div>
+
+    </section>
+
+    <section id="voyages">
+        <h2>Voyages</h2>
+        <p>Voyager est une autre de mes passions. Découvrez les pays et lieux les plus visités au monde, qui attirent des millions de touristes chaque année. Voici quelques destinations incontournables :</p>
+        <ul class="travel-destination-list">
+            <li class="travel-destination">
+                <h3>1. Paris, France</h3>
+                <p>Connue pour sa riche histoire, sa culture et ses monuments emblématiques comme la Tour Eiffel et le Louvre.</p>
+            </li>
+            <li class="travel-destination">
+                <h3>2. Tokyo, Japon</h3>
+                <p>Un mélange fascinant de tradition et de modernité, avec des attractions telles que le temple Senso-ji et les quartiers animés de Shibuya et Shinjuku.</p>
+            </li>
+            <li class="travel-destination">
+                <h3>3. New York, USA</h3>
+                <p>La ville qui ne dort jamais, célèbre pour ses gratte-ciels, Central Park, et ses musées comme le MET et le MoMA.</p>
+            </li>
+            <li class="travel-destination">
+                <h3>4. Londres, Royaume-Uni</h3>
+                <p>Une ville riche en histoire et en culture avec des sites emblématiques comme le Buckingham Palace, le British Museum et le London Eye.</p>
+            </li>
+            <li class="travel-destination">
+                <h3>5. Rome, Italie</h3>
+                <p>Un trésor d'histoire antique, avec des attractions comme le Colisée, le Vatican et la fontaine de Trevi.</p>
+            </li>
+            <li class="travel-destination">
+                <h3>6. Sydney, Australie</h3>
+                <p>Connue pour son opéra emblématique, ses plages magnifiques et son atmosphère détendue.</p>
+            </li>
+            <li class="travel-destination">
+                <h3>7. Barcelone, Espagne</h3>
+                <p>Famous for its modernist architecture by Antoni Gaudí, including the Sagrada Familia and Park Güell.</p>
+            </li>
+            <li class="travel-destination">
+                <h3>8. Dubai, Émirats Arabes Unis</h3>
+                <p>Un mélange spectaculaire de luxe moderne, avec des attractions comme le Burj Khalifa et les îles artificielles de Palm Jumeirah.</p>
+            </li>
+            <li class="travel-destination">
+                <h3>9. Istanbul, Turquie</h3>
+                <p>Une ville fascinante à cheval entre l'Europe et l'Asie, avec des sites comme la Mosquée Bleue et la basilique Sainte-Sophie.</p>
+            </li>
+            <li class="travel-destination">
+                <h3>10. Le Cap, Afrique du Sud</h3>
+                <p>Une destination magnifique avec ses plages, sa montagne de la Table et le quartier animé de Victoria & Alfred Waterfront.</p>
+            </li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Mon Nom - Tous droits réservés</p>
+    </footer>
+</body>
+
+</html>
